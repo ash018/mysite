@@ -6,4 +6,9 @@ urlpatterns = [
                 url(r'^$', ListView.as_view(
                                     queryset=Post.objects.all().order_by("-date")[:25],
                                     template_name="blog2/blog.html")),
-            ]
+            
+
+url(r'^(?P<pk>\d+)$', DetailView.as_view(
+                                    model = Post,
+                                    template_name="blog2/post.html")),
+]
